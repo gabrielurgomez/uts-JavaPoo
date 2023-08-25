@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <script>
+        //los arrays se suelen escribir en plural, se usa corchetes
+        let animales = ["Perro", "Gato", "Raton"]
+
+        //un objeto describe algo, se usa llaves
+        let animal = {
+            raza: 'rotwailer',
+            nombre: 'pluto',
+            edad: 5,
+            ladrar: () => { console.log("Woof woof") },
+            macho: true
+        }
+
+        //console.log(typeof animales)
+        console.log(typeof animal.ladrar)
+
+        let estudiante = {
+            cedula: 1098678567,
+            notas: [{ nota: 3.5 }, { nota: 4.2 }, { nota: 1.9 }],
+            direccion: "Calle 15 # 36-13",
+            repitente: false,
+            edad: 23
+        }
+
+        let definitiva = (estudiante.notas[0].nota + estudiante.notas[1].nota + estudiante.notas[2].nota) / 3
+        console.log(definitiva.toFixed(1))
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+</html>
