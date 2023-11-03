@@ -9,16 +9,76 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+
+        class Estudiante {
+            constructor(nombre, edad, nota1, nota2, nota3) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.nota1 = nota1;
+                this.nota2 = nota2;
+                this.nota3 = nota3;
+            }
+
+            decirNombre() {
+                console.log(`Hola! soy el estudiante ${this.nombre}`)
+            }
+
+            validarNotaFinal() {
+                let notaFinal = (parseFloat(this.nota1) + parseFloat(this.nota2) + parseFloat(this.nota3)) / 3
+                console.log(notaFinal)
+
+                let iconoSwalFire, tituloSwalFire, textoSwalFire;
+
+                if (notaFinal >= 3) {
+                    iconoSwalFire = 'success';
+                    tituloSwalFire = 'Aprobado'
+                    textoSwalFire = 'Estudiante aprobó con ' + notaFinal.toFixed(1)
+                } else {
+                    iconoSwalFire = 'error';
+                    tituloSwalFire = 'Reprobado';
+                    textoSwalFire = 'El estudiante no aprobó, obtuvo una nota de ' + notaFinal.toFixed(1)
+                }
+
+                Swal.fire({ position: 'top-end', icon: iconoSwalFire, title: tituloSwalFire, text: textoSwalFire, showConfirmButton: false, timer: 2000 })
+            }
+        }
+
+
         const guardarPersona = () => {
-            console.log("Se guardará una persona...")
+            console.clear();
+            console.log("Se guardará una persona...");
+
+            let nombreCapturado = document.getElementById('inputNombre').value
+            let edadCapturada = document.getElementById('inputEdad').value
+
+            let nota1Capturada = document.getElementById('inputNota1').value
+            if (nota1Capturada > 5 || nota1Capturada < 0) {
+                Swal.fire({ position: 'top-end', icon: 'info', title: 'Valide datos', text: 'La nota 1 no puede ser mayor a 5 o numeros negativos', showConfirmButton: false, timer: 2000 })
+                return;
+            }
+
+            let nota2Capturada = document.getElementById('inputNota2').value
+            if (nota2Capturada > 5 || nota2Capturada < 0) {
+                Swal.fire({ position: 'top-end', icon: 'info', title: 'Valide datos', text: 'La nota 2 no puede ser mayor a 5 o numeros negativos', showConfirmButton: false, timer: 2000 })
+                return;
+            }
+
+            let nota3Capturada = document.getElementById('inputNota3').value;
+            if (nota3Capturada > 5 || nota3Capturada < 0) {
+                Swal.fire({ position: 'top-end', icon: 'info', title: 'Valide datos', text: 'La nota 3 no puede ser mayor a 5 o numeros negativos', showConfirmButton: false, timer: 2000 })
+                return;
+            }
+
+            let objEstudiante = new Estudiante(nombreCapturado, edadCapturada, nota1Capturada, nota2Capturada, nota3Capturada)
+            objEstudiante.decirNombre();
+            objEstudiante.validarNotaFinal();
         }
     </script>
 </head>
 
 <body class="px-5 pt-5">
-
-
     <div class="container">
         <div class="row">
             <div class="col-sm me-2">
@@ -33,7 +93,7 @@
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i
                                             class="bi bi-person-circle"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nombre">
+                                    <input id="inputNombre" type="text" class="form-control" placeholder="Nombre">
                                 </div>
                             </div>
                         </div>
@@ -43,7 +103,7 @@
                                 <h5 class="card-title">Edad</h5>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                                    <input type="text" class="form-control" placeholder="Edad">
+                                    <input id="inputEdad" type="text" class="form-control" placeholder="Edad">
                                 </div>
                             </div>
                         </div>
@@ -53,21 +113,21 @@
                                 <h5 class="card-title">Nota1</h5>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nota1">
+                                    <input id="inputNota1" type="text" class="form-control" placeholder="Nota1">
                                 </div>
                             </div>
                             <div class="col-sm me-2">
                                 <h5 class="card-title">Nota2</h5>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nota2">
+                                    <input id="inputNota2" type="text" class="form-control" placeholder="Nota2">
                                 </div>
                             </div>
                             <div class="col-sm me-2">
                                 <h5 class="card-title">Nota3</h5>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="bi bi-123"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nota3">
+                                    <input id="inputNota3" type="text" class="form-control" placeholder="Nota3">
                                 </div>
                             </div>
                         </div>

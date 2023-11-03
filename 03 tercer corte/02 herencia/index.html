@@ -1,0 +1,41 @@
+<html>
+
+<head>
+</head>
+
+<body>
+</body>
+<footer>
+  <script>
+    // Clase padre
+    class Forma {
+      constructor(colorRecibido) {
+        this.color = colorRecibido;
+        //console.log("Soy una forma geométrica.");
+      }
+    }
+
+    // Clase hija
+    class Cuadrado extends Forma {
+      constructor(l1, l2, color) {
+        //super(); se encarga de llamar el constructor de la clase padre
+        super(color);
+        this.lado1 = l1;
+        this.lado2 = l2;
+      }
+      cambiarColor(nuevoColor) {
+        this.color = nuevoColor;
+      }
+    }
+
+    let objCuadrado = new Cuadrado(4, 5, "blanco");
+    console.log("Color al instanciar el objeto", objCuadrado.color);
+
+    objCuadrado.cambiarColor("negro");
+    console.log("Color cambiado", objCuadrado.color);
+
+  </script>
+
+</footer>
+
+</html>
