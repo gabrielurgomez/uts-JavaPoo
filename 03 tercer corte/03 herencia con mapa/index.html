@@ -1,0 +1,56 @@
+<html>
+
+<head>
+</head>
+
+<body>
+</body>
+<footer>
+  <script>
+
+    class Persona {
+      constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+      }
+
+      /*
+      validarMayor() {
+        if (this.edad > 18) {
+          this.mayor = true
+        } else {
+          this.mayor = false
+        }
+      }*/
+
+    }
+
+    class Estudiante extends Persona {
+      constructor(notas, nombre, edad) {
+        super(nombre, edad);
+        this.notas = notas;
+      }
+
+      calcularNotaFinal() {
+        let definitiva = parseFloat(this.notas.nota1 + this.notas.nota2 + this.notas.nota3) / 3;
+        this.definitiva = definitiva
+      }
+
+      calcularImpuesto(pagos) {
+        console.log(pagos)
+      }
+    }
+
+    let notas = { nota1: 3.5, nota2: 4.3, nota3: 2.8 };
+    let estudiante = new Estudiante(notas, 'Margarita', 25);
+
+    let pagosSemestres = { primerSemestre: 1400000, segundoSemestre: 1600000 }
+    estudiante.calcularImpuesto(pagosSemestres)
+
+
+
+  </script>
+
+</footer>
+
+</html>

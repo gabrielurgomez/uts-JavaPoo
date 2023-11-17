@@ -16,7 +16,7 @@
     }
 
     // Clase hija
-    class Cuadrado extends Forma {
+    class Rectangulo extends Forma {
       constructor(l1, l2, color) {
         //super(); se encarga de llamar el constructor de la clase padre
         super(color);
@@ -26,13 +26,13 @@
       cambiarColor(nuevoColor) {
         this.color = nuevoColor;
       }
-    }
+    }  
 
-    let objCuadrado = new Cuadrado(4, 5, "blanco");
-    console.log("Color al instanciar el objeto", objCuadrado.color);
+    let objRectangulo = new Rectangulo(4, 5, "blanco");
+    console.log("Color al instanciar el objeto", objRectangulo.color);
 
-    objCuadrado.cambiarColor("negro");
-    console.log("Color cambiado", objCuadrado.color);
+    objRectangulo.cambiarColor("negro");
+    console.log("Color cambiado", objRectangulo.color);
 
   </script>
 
