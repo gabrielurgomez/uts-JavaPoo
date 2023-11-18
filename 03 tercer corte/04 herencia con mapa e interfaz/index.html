@@ -12,10 +12,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let productosDisponibles = [
-            { nombre: 'MANZANA' },
-            { nombre: 'PERA' },
-            { nombre: 'GUANABANA' },
-            { nombre: 'BANANO' }
+            { nombre: 'MANZANA', existencias: 100 },
+            { nombre: 'PERA', existencias: 80 },
+            { nombre: 'GUANABANA', existencias: 90 },
+            { nombre: 'BANANO', existencias: 110 }
         ]
 
 
@@ -44,6 +44,11 @@
                     return;
                 }
 
+                if (this.cantidad > productoEncontrado.existencias) {
+                    Swal.fire({ position: 'top-end', icon: 'info', title: 'Inventario insuficiente', text: 'El valor ingresado supera al inventario actual' + this.nombre, showConfirmButton: false, timer: 2000 })
+                    return;
+                }
+
                 if (this.precio <= 0) {
                     Swal.fire({ position: 'top-end', icon: 'info', title: 'Valide datos', text: 'Precio debe ser mayor a cero', showConfirmButton: false, timer: 2000 })
                     return;
@@ -53,7 +58,6 @@
                     Swal.fire({ position: 'top-end', icon: 'info', title: 'Valide datos', text: 'La cantidad debe ser mayor a cero', showConfirmButton: false, timer: 2000 })
                     return;
                 }
-
 
                 productos.push({ nombre: this.nombre, precio: this.precio, cantidad: this.cantidad });
 
