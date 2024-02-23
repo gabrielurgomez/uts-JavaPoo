@@ -40,7 +40,7 @@
                 //devuelve undefined si no encuentra coincidencia
                 let productoEncontrado = productosDisponibles.find(el => el.nombre === this.nombre.toUpperCase())
                 if (productoEncontrado === undefined) {
-                    Swal.fire({ position: 'top-end', icon: 'info', title: 'Valide datos', text: 'Disculpe, no vendemos el producto ' + this.nombre, showConfirmButton: false, timer: 2000 })
+                    Swal.fire({ position: 'top-end', icon: 'info', title: 'Error', text: 'Disculpe, no vendemos el producto ' + this.nombre, showConfirmButton: false, timer: 2000 })
                     return;
                 }
 

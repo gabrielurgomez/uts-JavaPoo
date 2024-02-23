@@ -2,8 +2,41 @@
 
 <head>
     <script>
+        let myFavoriteAnimal; //undefined
+        myFavoriteAnimal = 'Turtle' //string
+
+        let player = 'Juan';
+
         //los arrays se suelen escribir en plural, se usa corchetes
-        let animales = ["Perro", "Gato", "Raton"]
+        let animales = ["Perro", "Gato", "Raton"];
+        //console.log(animales)
+        let x = animales[1];
+        //console.log(x)
+
+        let numbers = [4, 5, 3, 7, 3]
+        numbers.push(9)
+        //console.log(numbers)
+        //let finalNumber = numbers[1] + numbers[3]
+        //console.log(finalNumber)
+
+        let cant = numbers.length;
+        let suma = 0;
+        let mayor = 0;
+        let menor;
+        for (let i = 0; i < cant; i++) {
+            //console.log('posicion', i) //iterar posicion
+            //console.log(`Posicion ${i} = ${numbers[i]}`)
+            //console.log('Posicion ' + i + ' = ' + numbers[i])
+            suma = suma + numbers[i];
+            if (numbers[i] > mayor) { mayor = numbers[i] }
+
+            if (i === 0) { menor = numbers[0] }
+            if (numbers[i] < menor) { menor = numbers[i] }
+        }
+        //console.log('suma', suma)
+        //console.log('mayor', mayor)
+        let promedio = suma / cant
+        //console.log('promedio', promedio);
 
         //un objeto describe algo, se usa llaves
         let animal = {
@@ -11,11 +44,20 @@
             nombre: 'pluto',
             edad: 5,
             ladrar: () => { console.log("Woof woof") },
-            macho: true
+            macho: true,
         }
 
+        let animales2 = [{
+            raza: 'rotwailer', nombre: 'pluto', edad: 5, ladrar: () => { console.log("Woof woof") }, macho: true,
+        }, { raza: 'Akita', nombre: 'Hachiko', edad: 9, ladrar: () => { console.log("Woof woof") }, macho: true, }]
+      
+
+
+        console.log(animal.ladrar())
+
+
         //console.log(typeof animales)
-        console.log(typeof animal.ladrar)
+        //console.log(typeof animal.ladrar)
 
         let estudiante = {
             cedula: 1098678567,
@@ -26,7 +68,7 @@
         }
 
         let definitiva = (estudiante.notas[0].nota + estudiante.notas[1].nota + estudiante.notas[2].nota) / 3
-        console.log(definitiva.toFixed(1))
+        //console.log(definitiva.toFixed(1))
 
 
 
