@@ -8,9 +8,9 @@
         let player = 'Juan';
 
         //los arrays se suelen escribir en plural, se usa corchetes
-        let animales = ["Perro", "Gato", "Raton"];
+        //let animales = ["Perro", "Gato", "Raton"];
         //console.log(animales)
-        let x = animales[1];
+        //let x = animales[1];
         //console.log(x)
 
         let numbers = [4, 5, 3, 7, 3]
@@ -47,15 +47,33 @@
             macho: true,
         }
 
-        let animales2 = [{
-            raza: 'rotwailer', nombre: 'pluto', edad: 5, ladrar: () => { console.log("Woof woof") }, macho: true,
-        }, { raza: 'Akita', nombre: 'Hachiko', edad: 9, ladrar: () => { console.log("Woof woof") }, macho: true, }]
-      
+        //console.log(animal.raza);
 
 
-        console.log(animal.ladrar())
 
+        let animales = [
+            { raza: 'rotwailer', nombre: 'pluto', edad: 5, ladrar: () => { console.log("Woof woof") }, macho: true },
+            { raza: 'Labrador', nombre: 'Kira', edad: 12, ladrar: () => { console.log("Woof woof") }, macho: false },
+            { raza: 'Akita', nombre: 'Hachiko', edad: 9, ladrar: () => { console.log("Woof woof") }, macho: true },
+            { raza: 'Chihuahua', nombre: 'Estrella', edad: 8, ladrar: () => { console.log("Woof woof") }, macho: false }
+        ]
 
+        let perroMayor = 0;
+        let nombrePerroMayor = '';
+
+        for (let i = 0; i < animales.length; i++) {
+            let animalIterado = animales[i];
+            console.log('animalIterado posicion ' + i + ' => ', animalIterado);
+
+            if (animalIterado.edad > perroMayor) {
+                perroMayor = animalIterado.edad
+                nombrePerroMayor = animalIterado.nombre
+            }
+        }
+
+        console.log('Perro mayor es ' + nombrePerroMayor)
+
+        //console.log(animal.ladrar())
         //console.log(typeof animales)
         //console.log(typeof animal.ladrar)
 
@@ -69,18 +87,6 @@
 
         let definitiva = (estudiante.notas[0].nota + estudiante.notas[1].nota + estudiante.notas[2].nota) / 3
         //console.log(definitiva.toFixed(1))
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 </head>
 
