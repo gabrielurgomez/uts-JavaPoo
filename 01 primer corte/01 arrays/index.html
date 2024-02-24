@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <script>
+        let myFavoriteAnimal; //undefined
+        myFavoriteAnimal = 'Turtle' //string
+
+        let player = 'Juan';
+
+        //los arrays se suelen escribir en plural, se usa corchetes
+        //let animales = ["Perro", "Gato", "Raton"];
+        //console.log(animales)
+        //let x = animales[1];
+        //console.log(x)
+
+        let numbers = [4, 5, 3, 7, 3]
+        numbers.push(9)
+        //console.log(numbers)
+        //let finalNumber = numbers[1] + numbers[3]
+        //console.log(finalNumber)
+
+        let cant = numbers.length;
+        let suma = 0;
+        let mayor = 0;
+        let menor;
+        for (let i = 0; i < cant; i++) {
+            //console.log('posicion', i) //iterar posicion
+            //console.log(`Posicion ${i} = ${numbers[i]}`)
+            //console.log('Posicion ' + i + ' = ' + numbers[i])
+            suma = suma + numbers[i];
+            if (numbers[i] > mayor) { mayor = numbers[i] }
+
+            if (i === 0) { menor = numbers[0] }
+            if (numbers[i] < menor) { menor = numbers[i] }
+        }
+        //console.log('suma', suma)
+        //console.log('mayor', mayor)
+        let promedio = suma / cant
+        //console.log('promedio', promedio);
+
+        //un objeto describe algo, se usa llaves
+        let animal = {
+            raza: 'rotwailer',
+            nombre: 'pluto',
+            edad: 5,
+            ladrar: () => { console.log("Woof woof") },
+            macho: true,
+        }
+
+        //console.log(animal.raza);
+
+
+
+        let animales = [
+            { raza: 'rotwailer', nombre: 'pluto', edad: 5, ladrar: () => { console.log("Woof woof") }, macho: true },
+            { raza: 'Labrador', nombre: 'Kira', edad: 12, ladrar: () => { console.log("Woof woof") }, macho: false },
+            { raza: 'Akita', nombre: 'Hachiko', edad: 9, ladrar: () => { console.log("Woof woof") }, macho: true },
+            { raza: 'Chihuahua', nombre: 'Estrella', edad: 8, ladrar: () => { console.log("Woof woof") }, macho: false }
+        ]
+
+        let perroMayor = 0;
+        let nombrePerroMayor = '';
+
+        for (let i = 0; i < animales.length; i++) {
+            let animalIterado = animales[i];
+            //console.log('animalIterado posicion ' + i + ' => ', animalIterado);
+
+            if (animalIterado.edad > perroMayor) {
+                perroMayor = animalIterado.edad
+                nombrePerroMayor = animalIterado.nombre
+            }
+        }
+        //console.log('Perro mayor es ' + nombrePerroMayor)
+
+        let oldDog = 0;
+        let nameDog = '';
+
+        let oldBitch = 0;
+        let nameBitch = '';
+
+        for (let i = 0; i < animales.length; i++) {
+            let animalIterado = animales[i];
+            if (animalIterado.edad > oldDog && animalIterado.macho == true) {
+                oldDog = animalIterado.edad
+                nameDog = animalIterado.nombre
+            }
+            if (animalIterado.edad > oldBitch && animalIterado.macho == false) {
+                oldBitch = animalIterado.edad
+                nameBitch = animalIterado.nombre
+            }
+        }
+        //console.log('Perro mayor es ' + nameDog + oldDog + ' años')
+        //console.log('Perro mayor es ' + nameBitch + oldBitch + ' años')
+
+        //console.log(animal.ladrar())
+        //console.log(typeof animales)
+        //console.log(typeof animal.ladrar)
+
+
+        let personas = []
+        console.log(personas);
+
+        let nombreDigitado = prompt('Type the person name');
+
+        let persona = {}
+
+        console.log(persona)
+
+        persona.nombre = nombreDigitado
+
+        console.log(persona)
+
+        personas.push(persona)
+
+        console.log(personas)
+
+
+
+
+
+
+
+        let estudiante = {
+            cedula: 1098678567,
+            notas: [{ nota: 3.5 }, { nota: 4.2 }, { nota: 1.9 }],
+            direccion: "Calle 15 # 36-13",
+            repitente: false,
+            edad: 23
+        }
+
+        let definitiva = (estudiante.notas[0].nota + estudiante.notas[1].nota + estudiante.notas[2].nota) / 3
+        //console.log(definitiva.toFixed(1))
+    </script>
+</head>
+
+</html>
