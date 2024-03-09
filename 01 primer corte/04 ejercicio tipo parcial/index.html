@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <script>
+        /*Realice un programa que pida al usuario N número de ciudades, cada una tiene un ID, nombre, antigüedad (años) y nombre del alcalde. Tenga en cuenta que cada ciudad es un objeto, por ejemplo:
+         {id: 1, nombre:'Medellín', antiguedad:200, alcalde:'Carlos Pérez'}
+ 
+         1. Construya un array con los N números de objetos e imprímalo en consola.
+ 
+ 
+ 
+ 
+ 2.	Luego pida al usuario que introduzca un ID de ciudad. Imprima el nombre del alcalde de la ciudad a la cual corresponda el ID introducido, si el ID no existe, imprima “Ciudad no existe”.
+ 
+ 
+ 
+ 
+ 3.	Imprima en consola un array de strings que contenga los nombres de las ciudades con menos de 200 años de antigüedad, por ejemplo: [“Medellín”, “Bogotá”, “Cali”].
+ 
+ 
+ 
+ 
+ 4.	Imprima la antigüedad de la ciudad de menos antigüedad*/
+
+        let n = prompt('Digite el número de ciudades');
+        let ciudad, nombreLeido, antiguedadLeida, alcaldeLeido;
+        let ciudades = [];
+
+        for (let i = 1; i <= n; i++) {
+            ciudad = {};
+
+            nombreLeido = prompt('Digite el nombre');
+            antiguedadLeida = prompt('Digite antiguedad');
+            alcaldeLeido = prompt('Digite alcalde');
+
+            ciudad.id = i;
+            ciudad.nombre = nombreLeido;
+            ciudad.alcalde = alcaldeLeido;
+            ciudad.antiguedad = antiguedadLeida;
+
+            ciudades.push(ciudad);
+        }
+
+        console.log('Ciudades originales', ciudades);
+
+        let idCiudadConsultar = prompt('Digite el id de la ciudad a la cual se le cambiará el alcalde')
+        let ciudadEncontrada = false;
+        let ciudadesNuevas = [];
+
+        for (let i = 0; i < ciudades.length; i++) {
+            let ciudadIterada = ciudades[i];
+            if (ciudadIterada.id === parseInt(idCiudadConsultar)) {
+                ciudadIterada.alcalde = prompt('Digite el nuevo nombre del alcalde')
+                ciudadEncontrada = true;
+            }
+            ciudadesNuevas.push(ciudadIterada);
+        }
+
+        if (ciudadEncontrada === false) {
+            console.error('No existe la ciudad a consultar de id ' + idCiudadConsultar)
+        } else {
+            console.log('ciudades nuevas', ciudadesNuevas)
+        }
+
+
+    </script>
+</head>
+
+</html>
